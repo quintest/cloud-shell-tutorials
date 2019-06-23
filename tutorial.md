@@ -1,192 +1,60 @@
-# Introduction to Writing Tutorials in Cloud Shell
+# Les 2 Oefening Provisioning
+<walkthrough-directive-name name="Markus Keuter">
+</walkthrough-directive-name>
 
+**Duur van de oefening**: ongeveer 15 minuten
+## Doel
+Aan het einde van de les heb je gezien hoe je door het aanpassen van configuratie bestanden een omgeving kan aanmaken, 
+zonder handmatig nog in te grijpen gedurende de provisioning fase. Klik op de **Next** of **Volgende** button onderaan je scherm 
+om naar het volgende deel van de oefening te gaan.
 
-## Let's get started!
+### De instructie omgeving
+De tekst die je nu leest staat hier standaard niet, dit is een zogenaamde cloudshell tutorial omgeving. 
+Dit maakt het mogelijk om de oefening te voorzien van interactieve objecten zoals de Next button, 
+maar ook links naar andre sites en het heeft een spotlight functie, waarmee onderdelen in de gebruikersinterface 
+uitgelicht kunnen worden.
 
-Get your users up and running quickly with your project by including an interactive tutorial.
-
-This guide will show you how to build your own interactive tutorial (like this one). It'll also walk you through generating a button that users can use to launch your finished tutorial.
-
-**Time to complete**: About 10 minutes
-
-Click the **Next** button to move to the next step.
-
-
-## What is Cloud Shell?
-
-Before we jump in, let's briefly go over what Cloud Shell can do.
-
-Cloud Shell is a personal hosted Virtual Machine which comes pre-loaded with developer tools for Google Cloud products. This interactive shell environment comes with a built-in code editor, persistent disk storage, and web preview functionality. To use command-line access alone, visit [console.cloud.google.com/cloudshell](https://console.cloud.google.com/cloudshell).
-
-You can direct your users to Cloud Shell to help them quickly get started with your project; giving them an opportunity to step through a use case and familiarize themselves with your project's functionality.
-
-Continue on to the next step to start setting up your tutorial.
-
-
-## In-context tutorials
-
-What you're looking at now is an in-context tutorial.
-
-The content is shown along with the Cloud Shell environment where you can carry out the tutorial steps. Having the tutorial and development environment open in the same place makes it easier for your users to start using your project through a straightforward single screen experience.
-
-Try running a command now:
+### Tekst kopieeren
+Voer als eerste de volgende handeling uit om te gevoel te krijgen bij de tutorial omgeving.
+Klik op het shell icoontje <walkthrough-cloud-shell-icon></walkthrough-cloud-shell-icon> naast de onderstaande tekst:
 ```bash
-echo "Hello Cloud Shell"
+echo "Hello Quint Summerschool!"
 ```
+Hierbij wordt de tekst naar je shell gekopieerd en kan je door Enter te drukken het commando uitvoeren. Daarbij wordt de tekst tussen
+de aanhalingstekens op de regel eronder getoond.
 
-**Tip**: Click the copy button on the side of the code box and paste the command in the Cloud Shell terminal to run it.
+Klik op **Next** of **Volgende** om verder te gaan, hierna kan je via de navigatie buttons onderaan vooruit of terug in de tutorial.
 
-Next, you’ll write and launch a basic tutorial.
+## De Cloud Shell
+Allereerst maken we kennis met de cloudshell, dit is het zwarte horizontale venster links onderaan het scherm. 
+Dit is de command-prompt die je van Google krijgt als je handelingen niet via het menu (klik) maar op basis van tekst invoer wil uitvoeren.
+Dit wil je wel eens doen omdat het na enige oefening sneller is dan via het menu werken, maar ook omdat je de regels zoals je 
+deze achter elkaar typt, kan uit laten voeren via een zogenaamd script. Hierdoor zijn deze handelingen herhaalbaar uit te voeren.
 
+### De Cloud editor
+Boven de cloudshell staat een groot vlak met aan de zijkant een folder structuur, dit is de cloud-shell-editor. 
+Deze editor maakt het eenvoudiger om tekst bestanden aan te maken en aan te passen. 
+We zullen deze editor verderop in de tutorial inzetten om configuratie bestanden mee aan te passen.
 
-## Opening the editor
-
-You can edit a file stored in Cloud Shell using Cloud Shell’s built-in text editor.
-
-*  To start, open the editor by clicking on the <walkthrough-cloud-shell-editor-icon></walkthrough-cloud-shell-editor-icon> icon.
-*  Look at the source file for this tutorial by opening `tutorial.md`.
-*  Try making a change to the file for this tutorial, then saving it using the <walkthrough-editor-spotlight spotlightId="fileMenu">file menu</walkthrough-editor-spotlight>.
-
-To restart the tutorial with your changes, run:
-```bash
-cloudshell launch-tutorial -d tutorial.md
-```
-
-Next, you will learn how to format the text in a tutorial.
-
-
-## Writing in Markdown
-
-To write your tutorial, use [Markdown](https://en.wikipedia.org/wiki/Markdown) and follow these guidelines:
-
-
-### Edit the title
-
-Modify the title of this tutorial ('# Introduction to writing tutorials in Cloud Shell') by changing it to:
-
-```
-# Teach me to write a tutorial
-```
-
-### Add a new step
-
-Next, add a step just after the title like this:
-
-```
-## Step 1
-This is a new step I’ve just added.
-```
-
-Each 'step' of a tutorial is displayed on one page. To move through steps, users use the 'Back' and 'Next' buttons.
-
-
-### Add underlying items to a step
-
-To list items that are part of a tutorial step under a particular step heading, add them as such:
-
-```
-### This is an item under your first step
-```
-
-The tutorial engine also supports Markdown features like links and images. Note, **including HTML is not supported**.
-
-To recap, a **title** is marked with a **level 1** heading, a **step** with a **level 2** heading, and an **item** with a **level 3** heading.
-
-
-### Restart to see changes
-
-To see your changes, restart the tutorial by running:
-```bash
-cloudshell launch-tutorial -d tutorial.md
-```
-
-Next up, adding helpful links and icons to your tutorial.
-
-
-## Special tutorial features
-
-In the Markdown for your tutorial, you may include special directives that are specific to the tutorial engine. These allow you to include helpful shortcuts to actions that you may ask a user to perform.
-
-
-### Trigger file actions in the text editor
-To include a link to <walkthrough-editor-open-file filePath="cloud-shell-tutorials/tutorial.md">open a file for editing</walkthrough-editor-open-file>, use:
-
-```
-<walkthrough-editor-open-file
-    filePath="cloud-shell-tutorials/tutorial.md">
-    open a file for editing
-</walkthrough-editor-open-file>
-```
-
-
-### Highlight a UI element
-
-You can also direct the user’s attention to an element on the screen that you want them to interact with.
-
-You may want to show people where to find the web preview icon to view the web server running in their Cloud Shell virtual machine in a new browser tab.
-
-Display the web preview icon <walkthrough-web-preview-icon></walkthrough-web-preview-icon> by including this in your tutorial’s Markdown:
-
-```
-<walkthrough-web-preview-icon>
-</walkthrough-web-preview-icon>
-```
-
-To create a link that shines a <walkthrough-spotlight-pointer spotlightId="devshell-web-preview-button">spotlight on the web preview icon</walkthrough-spotlight-pointer>, add the following:
-
-```
-<walkthrough-spotlight-pointer
-    spotlightId="devshell-web-preview-button">
-    spotlight on the web preview icon
+**Tip**: Mocht de editor er niet staan of deze neemt teveel ruimte in dan kan deze door 
+te klikken op het icoontje <walkthrough-cloud-shell-editor-icon></walkthrough-cloud-shell-editor-icon> rechtboven, 
+aan en uitgezet worden.
+<walkthrough-spotlight-pointer spotlightId="devshell-web-editor-button"
+                               text="Open Editor">
 </walkthrough-spotlight-pointer>
+
+## Cloudshell koppelen aan Quint-demo project 
+Als eerste stellen we de juiste project omgeving in, zodat de virtuele machines die we gaan aanmaken in de juiste omgeving staan. 
+Om het juiste project in Google Cloud in te stellen voer je volgende commando uit:
+```bash
+gcloud config set project quint-demo
 ```
+Als het goed is krijg je nu de toevoeging (quint-demo) in de cloudshell te zien en staat deze ook tussen haakjes boven je cloudshell.
 
-You can find a list of supported spotlight targets in the [documentation for Cloud Shell Tutorials](https://cloud.google.com/shell/docs/tutorials).
-
-You've now built a tutorial to help onboard users!
-
-Next, you’ll create a button that allows users to launch your tutorial in Cloud Shell.
-
-
-## Creating a button for your site
-
-Here is how you can create a button for your website, blog, or open source project that will allow users to launch the tutorial you just created.
-
-
-### Creating an HTML Button
-
-To build a link for the 'Open in Cloud Shell' feature, start with this base HTML and replace the following:
-
-**`YOUR_REPO_URL_HERE`** with the project repository URL that you'd like cloned for your users in their launched Cloud Shell environment.
-
-**`TUTORIAL_FILE.md`** with your tutorial’s Markdown file. The path to the file is relative to the root directory of your project repository.
-
+## Google Cloud Services
+Om te voorkomen dat we voortdurend de vraag gesteld krijgen of we een service willen opstarten zetten 
+we deze middels het volgende commando aan:
+```bash
+gcloud services enable compute container deploymentmanager dns
 ```
-<a  href="https://console.cloud.google.com/cloudshell/open?git_repo=YOUR_REPO_URL_HERE&tutorial=TUTORIAL_FILE.md">
-    <img alt="Open in Cloud Shell" src="http://gstatic.com/cloudssh/images/open-btn.png">
-</a>
-```
-
-Once you've edited the above HTML with the appropriate values for `git_repo` and `tutorial`, use the HTML snippet to generate the 'Open in Cloud Shell' button for your project.
-
-
-### Creating a Markdown Button
-
-If you are posting the 'Open in Cloud Shell' button in a location that accepts Markdown instead of HTML, use this example instead:
-
-```
-[![Open this project in Cloud Shell](http://gstatic.com/cloudssh/images/open-btn.png)](https://console.cloud.google.com/cloudshell/open?git_repo=YOUR_REPO_URL_HERE&page=editor&tutorial=TUTORIAL_FILE.md)
-```
-
-Likewise, once you've replaced `YOUR_REPO_URL_HERE` and `TUTORIAL_FILE.md` in the 'Open in Cloud Shell' URL as described above, the resulting Markdown snippet can be used to create your button.
-
-
-## Congratulations
-
-<walkthrough-conclusion-trophy></walkthrough-conclusion-trophy>
-
-You’re all set!
-
-You can now have users launch your tutorial in Cloud Shell and have them start using your project with ease.
-
-
+Zodra je dit commando uitvoert, zal het even kunnen duren voor dit klaar is. Mocht er een ERROR verschijnen, laat dit dan even weten.
